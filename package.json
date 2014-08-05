@@ -1,9 +1,30 @@
 {
   "name": "geogoose",
-  "version": "0.1.0",
-  "description": "Models and utilities for storing GeoJSON features and feature collections with Mongoose.",
+  "version": "0.9.0",
+  "description": "A framework for storing and querying GeoJSON data with Node.js and Mongoose.",
   "dependencies": {
-		"mongoose": "3.5.5",
-		"underscore": "1.5.x"
+    "mongoose": "3.5.5",
+    "underscore": "1.5.x"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samluescher/geogoose.git"
+  },
+  "keywords": [
+    "GeoJSON",
+    "Mongoose",
+    "Node.js"
+  ],
+  "author": "Samuel Luescher <sam@samluescher.net>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/samluescher/geogoose/issues"
   }
 }
