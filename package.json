@@ -2,11 +2,13 @@
   "name": "geogoose",
   "version": "0.8.0",
   "description": "A framework for storing and querying GeoJSON data with Node.js and Mongoose.",
+  "engines": {
+    "node": "0.8",
+  },
   "dependencies": {
     "mongoose": "3.5.5",
     "underscore": "1.5.x"
   },
-  "main": "index.js",
   "directories": {
     "test": "test"
   },
