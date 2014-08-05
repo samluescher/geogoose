@@ -11,7 +11,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "npm install && DB_URI=mongodb://localhost/geogoose_test mocha test"
   },
   "repository": {
     "type": "git",

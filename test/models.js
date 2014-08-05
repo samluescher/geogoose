@@ -6,6 +6,7 @@ var geogoose = require('../'),
 describe('GeoFeature', function() {
 
 	before(function() {
+		assert(process.env.DB_URI, 'please make sure process.env.DB_URI is defined');
 		mongoose.connect(process.env.DB_URI);
 	});
 
