@@ -206,6 +206,15 @@ GeoFeatureSchemaStatics.near = function(geometry, maxDistance)
     return this.where(this.schema.statics.geoIndexField, c);
 }
 
+GeoFeatureSchemaStatics.withGeometry = function() 
+{
+    if (!this.schema.statics.geoIndexField) {
+        throw new Error('Schema has no geoIndexField defined');
+    };
+    var c = {$ne: null};
+    return this.where(this.schema.statics.geoIndexField, c);
+}
+
 function GeoFeatureSchema(extraDefinition, extraMethods, extraStatics, extraMiddleware, basicDefinition)
 {
     var schema = new mongoose.Schema(_.extend(_.clone(basicDefinition || geoJSONFeatureDefinition), extraDefinition || {}));        

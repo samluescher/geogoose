@@ -16,7 +16,7 @@ describe('GeoFeature', function() {
 		featureCollection = new GeoFeatureCollection({_id: new mongoose.Types.ObjectId()}),
 		GeoFeature = featureCollection.getFeatureModel();
 
-	it('should create three GeoFeatures', function(done) {
+	it('should create three GeoFeatures with geometry, and one without', function(done) {
 		var dequeueSave = function(coordinates) {
 			if (!coordinates.length) {
 				done();
@@ -24,12 +24,13 @@ describe('GeoFeature', function() {
 				var c = coordinates.shift();
 				new GeoFeature({
 					type: "Feature",
-				    geometry: {
-				        type: typeof c[0] == 'number' ? "Point" :
-				        	typeof c[0][0] == 'number' ? "LineString"
-				        	: 'Polygon', 
-				        coordinates: c
-				    }
+					geometry: typeof c == 'undefined' ? null : {
+						type:  
+							typeof c[0] == 'number' ? "Point" :
+							typeof c[0][0] == 'number' ? "LineString"
+							: 'Polygon', 
+						coordinates: c
+					}
 				}).save(function(err) {
 					if (err) throw err;
 					dequeueSave(coordinates);
@@ -40,12 +41,13 @@ describe('GeoFeature', function() {
 		dequeueSave([
 			[0, -80],
 			[[100, 80], [0, 90]],
-			[[[10, -50], [0, 0], [10, 0], [10, -50]]]
+			[[[10, -50], [0, 0], [10, 0], [10, -50]]],
+			undefined
 		]);
 	});
 
-	it('should find 3 features, and return the correct GeoJSON representation', function(done) {
-		GeoFeature.find(function(err, features) {
+	it('should find the 3 features with geometry, and return the correct GeoJSON representation', function(done) {
+		GeoFeature.withGeometry().find(function(err, features) {
 			assert.equal(features.length, 3);
 			// TODO: fails, why?
 			//assert.deepEqual(features[0].get('geometry.coordinates'), [0, -359]);
