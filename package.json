@@ -3,7 +3,7 @@
   "version": "0.8.0",
   "description": "A framework for storing and querying GeoJSON data with Node.js and Mongoose.",
   "engines": {
-    "node": "0.8"
+    "node": ">=0.8"
   },
   "dependencies": {
     "mongoose": ">=3.6.11",
