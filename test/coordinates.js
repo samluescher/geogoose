@@ -1,4 +1,4 @@
-var coordinates = require('../').coordinates,
+var coordinates = require('../lib/').coordinates,
 	assert = require('assert');
 
 describe('coordinates', function() {

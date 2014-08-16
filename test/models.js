@@ -1,4 +1,4 @@
-var geogoose = require('../'),
+var geogoose = require('../lib/'),
 	coordinates = geogoose.coordinates,
 	mongoose = require('mongoose'),
 	assert = require("assert");

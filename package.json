@@ -9,7 +9,9 @@
     "mongoose": ">=3.6.11",
     "underscore": ">=1.5"
   },
+  "main": "lib",
   "directories": {
+    "lib": "lib",
     "test": "test"
   },
   "scripts": {
